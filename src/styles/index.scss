@@ -23,8 +23,8 @@ $nav-font-weight: 500;
 $nav-item-gap: 20px;
 
 /* Grid de cards */
-$grid-gap-x: 48px;
-$grid-gap-y: 46px;
+$grid-gap-x: 46px;
+$grid-gap-y: 48px;
 
 /* Card */
 $card-radius: 5px;
@@ -163,7 +163,7 @@ body {
   padding: $container-pad-y $container-pad-x;
 
   grid-template-columns: repeat(1, $card-width);
-  gap: $grid-gap-y $grid-gap-x;
+  gap: $grid-gap-x $grid-gap-y;
 }
 
 /* 2 colunas ≥ 488px */
@@ -205,6 +205,11 @@ body {
   border-radius: $card-radius;
   padding: $card-padding;
   background: $card-bg;
+
+   &:hover {
+    transform: scale(1.2);
+    z-index: 1;
+  }
 }
 
 .card__image {
@@ -295,8 +300,6 @@ body {
   &:hover {
     color: $color-main;
     background-color: $color-white;
-    transform: scale(1.2);
-    z-index: 1;
   }
 }
 

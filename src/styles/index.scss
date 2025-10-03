@@ -7,6 +7,7 @@ $color-text-accent: #060b35;
 $color-text-secondary: #616070;
 $color-white: #fff;
 $color-border: #f3f3f3;
+$color-title-hover: #34568b;
 $shadow-header: 0 2px 4px rgba(0, 0, 0, 0.05);
 
 /* Layout / container */
@@ -33,7 +34,7 @@ $card-review-mb: 24px;
 $review-count-fs: 10px;
 $transition: 300ms;
 $card-padding: 32px 16px 16px;
-$card-width: 100%;
+$card-width: 200px;
 $card-bg: #fff;
 
 /* Imagem do card */
@@ -161,7 +162,7 @@ body {
   margin: 0 auto;
   padding: $container-pad-y $container-pad-x;
 
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(1, $card-width);
   gap: $grid-gap-y $grid-gap-x;
 }
 
@@ -169,21 +170,21 @@ body {
 
 @media (min-width: $bp-2cols) {
   .cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, $card-width);
   }
 }
 
 /* 3 colunas ≥ 768px */
 @media (min-width: $bp-3cols) {
   .cards {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, $card-width);
   }
 }
 
 /* 4 colunas ≥ 1024px */
 @media (min-width: $bp-4cols) {
   .cards {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(4, $card-width);
   }
 }
 
@@ -193,8 +194,13 @@ body {
 }
 
 .card {
+  position: relative;
+  z-index: 0;
+  transition: transform $transition;
+  transform-origin: center center;
+  will-change: transform;
   box-sizing: border-box;
-  width: 100%;
+  width: $card-width;
   border: $card-border-w solid $color-border;
   border-radius: $card-radius;
   padding: $card-padding;
@@ -215,6 +221,11 @@ body {
   line-height: $card-title-lh;
   font-weight: $card-title-fw;
   color: $color-text-accent;
+  transition: color $transition;
+}
+
+.card:hover .card__title {
+  color: $color-title-hover;
 }
 
 .card__code {
@@ -222,6 +233,7 @@ body {
   font-size: $font-size-base;
   line-height: $line-height-base;
   color: $color-text-secondary;
+  transition: color $transition;
 }
 
 .card__review-container {
@@ -278,6 +290,8 @@ body {
   &:hover {
     color: $color-main;
     background-color: $color-white;
+    transform: scale(1.2); /* +20% */
+    z-index: 1;
   }
 }
 

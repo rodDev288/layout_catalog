@@ -31,8 +31,9 @@ $card-border-w: 1px;
 $card-code-mb: 16px;
 $card-review-mb: 24px;
 $review-count-fs: 10px;
+$transition: 300ms;
 $card-padding: 32px 16px 16px;
-$card-width: 100%; // com Grid responsivo, deixe 100%
+$card-width: 100%;
 $card-bg: #fff;
 
 /* Imagem do card */
@@ -128,7 +129,6 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   color: $color-text-accent;
-
   transition: color 0.3s;
 
   &:hover {
@@ -220,6 +220,7 @@ body {
 .card__code {
   margin-bottom: $card-code-mb;
   font-size: $font-size-base;
+  line-height: $line-height-base;
   color: $color-text-secondary;
 }
 

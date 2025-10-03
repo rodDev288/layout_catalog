@@ -130,7 +130,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   color: $color-text-accent;
-  transition: color 0.3s;
+  transition: color $transition;
 
   &:hover {
     color: $color-main;
@@ -287,10 +287,15 @@ body {
   color: $color-white;
   background-color: $color-main;
 
+  transition:
+    background-color $transition,
+    color $transition,
+    border-color $transition;
+
   &:hover {
     color: $color-main;
     background-color: $color-white;
-    transform: scale(1.2); /* +20% */
+    transform: scale(1.2);
     z-index: 1;
   }
 }
